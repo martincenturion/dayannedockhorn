@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #424874;
+  --light-green: #D6E5E3;
+  --pink: #DCD6F7;
+}
+nav a {
+  position: relative;
+}
+nav a:hover {
+  color: var(--pink);
+}
+nav a:hover:after {
+  display: block;
+  position: absolute;
+  bottom: -1rem;
+  content: "";
+  width: 100%;
+  height: 10px;
+  background-image: url("highlight.svg");
+  background-repeat: no-repeat;
+}
+.about-heading {
+  background-image: url("sobre-mim.svg");
+}
+.publications-heading {
+  background-image: url("publications.svg");
+}
+.image-shadow {
+  transform: translate(-10px, -10px);
+  transition: all 0.1s ease;
+}
+.image-shadow:hover {
+  transform: translate(0px, 0px);
+}
+.sidenote {
+  color: var(--pink);
+  letter-spacing: 0.8em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
