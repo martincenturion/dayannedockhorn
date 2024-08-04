@@ -1881,10 +1881,6 @@ video {
   font-weight: 600;
 }
 
-.font-extrabold {
-  font-weight: 800;
-}
-
 .uppercase {
   text-transform: uppercase;
 }
@@ -1950,6 +1946,7 @@ nav a:hover:after {
   height: 10px;
   background-image: url("highlight.svg");
   background-repeat: no-repeat;
+  background-position: center;
 }
 
 .about-heading {
@@ -2291,10 +2288,6 @@ nav a:hover:after {
 
   .lg\:mt-0 {
     margin-top: 0px;
-  }
-
-  .lg\:mt-20 {
-    margin-top: 5rem;
   }
 
   .lg\:mt-24 {

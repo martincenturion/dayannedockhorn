@@ -22,6 +22,7 @@ nav a:hover:after {
   height: 10px;
   background-image: url("highlight.svg");
   background-repeat: no-repeat;
+  background-position: center;
 }
 .about-heading {
   background-image: url("sobre-mim.svg");
