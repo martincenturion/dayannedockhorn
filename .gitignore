@@ -1,2 +1,4 @@
 # Ignore Eleventy's output folder
 _site/
+
+node_modules/
