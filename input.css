@@ -5,7 +5,9 @@
 :root {
   --primary: #424874;
   --light-green: #D6E5E3;
+  --green: #DEE8CD;
   --pink: #DCD6F7;
+  --light-pink: #E6C7E2;
 }
 nav a {
   position: relative;
@@ -36,6 +38,9 @@ nav a:hover:after {
 }
 .image-shadow:hover {
   transform: translate(0px, 0px);
+}
+.about-book {
+  background-image: url("mockup-capamiolo.jpg");
 }
 .sidenote {
   color: var(--pink);
