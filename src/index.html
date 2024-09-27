@@ -164,6 +164,8 @@
               value="3f7b0cf6-79e7-46be-a63e-4c426e2cd2c5"
             />
 
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
             <div class="flex flex-col gap-y-1">
               <label class="text-white uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
                 Opções de entrega
@@ -254,6 +256,52 @@
             </div>
 
             <div class="flex flex-col gap-y-1">
+              <label for="quantidade" class="text-white uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
+                Quantidade
+              </label>
+              <input
+                type="number"
+                name="quantidade"
+                id="quantidade"
+                class="form-input w-20"
+                min="1"
+                value="1"
+                required
+              />
+            </div>
+
+            <div class="flex flex-col gap-y-1">
+              <label class="text-white uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
+                Forma de pagamento
+              </label>
+
+              <label for="pix" class="inline-flex items-center text-white">
+                <input
+                  type="radio"
+                  value="PIX"
+                  name="pagamento"
+                  id="pix"
+                  class="form-radio"
+                />
+                <span class="ml-2">
+                  PIX
+                </span>
+              </label>
+
+              <label for="cartao" class="inline-flex items-center text-white">
+                <input
+                  type="radio"
+                  value="Cartão de Crédito"
+                  name="pagamento"
+                  id="cartao"
+                />
+                <span class="ml-2">
+                  Cartão de Crédito
+                </span>
+              </label>
+            </div>
+
+            <div class="flex flex-col gap-y-1">
               <label for="cep" class="text-white uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
                 CEP
               </label>
@@ -307,7 +355,7 @@
             </div>
 
             <button type="submit" class="bg-[var(--light-pink)] text-black px-6 py-2 rounded-md font-bold text-center no-underline hover:bg-[#C99DC4] transition">
-              Efetuar pagamento com PIX
+              Ir para o pagamento
             </button>
           </form>
         </div>
@@ -380,6 +428,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('form');
   const submitButton = form.querySelector('button[type="submit"]');
   const entregaInputs = form.querySelectorAll('input[name="entrega"]');
+  const paymentInputs = form.querySelectorAll('input[name="pagamento"]');
   const cepInput = form.querySelector('#cep');
   const cepLabel = form.querySelector('label[for="cep"]');
   const enderecoContainer = form.querySelector('#endereco');
@@ -389,10 +438,10 @@ document.addEventListener('DOMContentLoaded', () => {
   enderecoContainer.style.display = 'none';
 
   // Update submit button text when delivery option is selected
-  entregaInputs.forEach(input => {
+  paymentInputs.forEach(input => {
     input.addEventListener('change', (e) => {
-      const price = e.target.id === 'retirar' ? 'R$ 55' : 'R$ 75';
-      submitButton.textContent = `Efetuar pagamento com PIX (${price})`;
+      const method = e.target.id === 'pix' ? 'PIX' : 'cartão de crédito';
+      submitButton.textContent = `Pagar com ${method}`;
     });
   });
 
@@ -493,6 +542,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = form.querySelector('button[type="submit"]');
     const originalButtonText = submitButton.textContent;
 
+    // Disable submit button
+    submitButton.disabled = true;
+
     // Validate required fields
     const requiredFields = form.querySelectorAll('[required]');
     let isValid = true;
@@ -517,14 +569,16 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    // Get payment option
+    const selectedPayment = form.querySelector('input[name="pagamento"]:checked');
+    if (!selectedPayment) {
+      alert('Por favor, selecione uma opção de pagamento.');
+      return;
+    }
+
     // Update button text and disable it
     submitButton.textContent = 'Processando seus dados...';
     submitButton.disabled = true;
-
-    // Determine which Nubank link to use
-    const nubankLink = selectedDelivery.id === 'retirar'
-      ? 'https://nubank.com.br/cobrar/1caesf/66f55d32-40f3-411a-8c5a-884537475f31'
-      : 'https://nubank.com.br/cobrar/1caesf/66f55dcc-b099-4074-8072-ef5175e8c9db';
 
     // Create FormData object
     const formData = new FormData(form);
@@ -553,8 +607,14 @@ document.addEventListener('DOMContentLoaded', () => {
           ? 'https://nubank.com.br/cobrar/1caesf/66f55d32-40f3-411a-8c5a-884537475f31'
           : 'https://nubank.com.br/cobrar/1caesf/66f55dcc-b099-4074-8072-ef5175e8c9db';
 
+        const cardLink = selectedDelivery.id === 'retirar'
+        ? 'https://pay.infinitepay.io/dayanne-dockhorn/VC1D-10rqCMwXGZ-55,00/'
+        : 'https://pay.infinitepay.io/dayanne-dockhorn/VC1D-43TNreL6gF-75,00/';
+
         // Open Nubank link in a new tab
-        window.location.href = nubankLink;
+        window.location.href = selectedPayment.id === 'pix'
+          ? nubankLink
+          : cardLink;
       } else {
         console.error(result.message);
         throw new Error('Erro ao enviar o formulário');

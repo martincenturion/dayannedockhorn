@@ -1946,6 +1946,11 @@ select {
   margin-right: 2.5rem;
 }
 
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1964,11 +1969,6 @@ select {
 .my-32 {
   margin-top: 8rem;
   margin-bottom: 8rem;
-}
-
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 
 .mb-1 {
@@ -2052,6 +2052,10 @@ select {
   height: fit-content;
 }
 
+.w-20 {
+  width: 5rem;
+}
+
 .w-24 {
   width: 6rem;
 }
@@ -2120,6 +2124,11 @@ select {
   justify-content: space-between;
 }
 
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
+}
+
 .gap-x-10 {
   -moz-column-gap: 2.5rem;
        column-gap: 2.5rem;
@@ -2144,6 +2153,10 @@ select {
   row-gap: 0.25rem;
 }
 
+.gap-y-10 {
+  row-gap: 2.5rem;
+}
+
 .gap-y-2 {
   row-gap: 0.5rem;
 }
@@ -2154,20 +2167,6 @@ select {
 
 .gap-y-5 {
   row-gap: 1.25rem;
-}
-
-.gap-y-10 {
-  row-gap: 2.5rem;
-}
-
-.gap-x-2 {
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
-}
-
-.gap-x-1 {
-  -moz-column-gap: 0.25rem;
-       column-gap: 0.25rem;
 }
 
 .self-start {
@@ -2214,10 +2213,6 @@ select {
   border-style: dashed;
 }
 
-.border-dotted {
-  border-style: dotted;
-}
-
 .border-none {
   border-style: none;
 }
@@ -2243,16 +2238,6 @@ select {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
-}
-
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-}
-
-.border-\[\#DCD6F7\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(220 214 247 / var(--tw-border-opacity));
 }
 
 .bg-\[\#A6B1E1\] {
@@ -2495,11 +2480,6 @@ select {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.text-\[\#DCD6F7\] {
-  --tw-text-opacity: 1;
-  color: rgb(220 214 247 / var(--tw-text-opacity));
-}
-
 .underline {
   text-decoration-line: underline;
 }
@@ -2578,6 +2558,11 @@ nav a:hover:after {
   letter-spacing: 0.8em;
   writing-mode: vertical-rl;
   text-orientation: mixed;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: wait;
 }
 
 .loader {
