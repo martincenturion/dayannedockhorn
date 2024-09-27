@@ -554,7 +554,7 @@ document.addEventListener('DOMContentLoaded', () => {
           : 'https://nubank.com.br/cobrar/1caesf/66f55dcc-b099-4074-8072-ef5175e8c9db';
 
         // Open Nubank link in a new tab
-        window.open(nubankLink, '_blank');
+        window.location.href = nubankLink;
       } else {
         console.error(result.message);
         throw new Error('Erro ao enviar o formulário');
