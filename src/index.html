@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
   entregaInputs.forEach(input => {
     input.addEventListener('change', (e) => {
       const price = e.target.id === 'retirar' ? 'R$ 55' : 'R$ 75';
-      submitButton.textContent = `Continuar para o pagamento PIX (${price})`;
+      submitButton.textContent = `Efetuar pagamento com PIX (${price})`;
     });
   });
 
