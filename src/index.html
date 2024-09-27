@@ -542,9 +542,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitButton = form.querySelector('button[type="submit"]');
     const originalButtonText = submitButton.textContent;
 
-    // Disable submit button
-    submitButton.disabled = true;
-
     // Validate required fields
     const requiredFields = form.querySelectorAll('[required]');
     let isValid = true;
