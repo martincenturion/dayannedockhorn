@@ -1,10 +1,11 @@
 {
   "scripts": {
-    "dev": "npx tailwindcss -i ./input.css -o ./styles.css --watch",
-    "build": "npx tailwindcss -i ./input.css -o ./styles.css --minify && npx @11ty/eleventy",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./src/styles.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./src/styles.css --minify && npx @11ty/eleventy",
     "eleventy": "npx @11ty/eleventy --serve"
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9",
     "@tailwindcss/typography": "^0.5.13",
     "tailwindcss": "^3.4.7"
   }

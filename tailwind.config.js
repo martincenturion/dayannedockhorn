@@ -3,9 +3,16 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  content: ["./*.{html,js}"],
+  content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            'color': '#000',
+          }
+        }
+      },
       fontFamily: {
         'sans': ['"Inter"', ...defaultTheme.fontFamily.sans],
       },
@@ -13,6 +20,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
     // ...
   ],
 }
