@@ -80,9 +80,8 @@
     >
       Comprar o livro
       </a>
-      <span class="text-sm text-white opacity-70">* Frete grátis para todo Brasil</span>
+      <span class="text-sm text-white opacity-70">🚚 Frete grátis para todo Brasil</span>
     </div>
-
   </div>
 
   <div class="flex flex-col md:flex-row items-start gap-y-5 gap-x-5 max-w-2xl mx-4 md:mx-auto bg-[var(--green)] my-24 p-9">
@@ -131,6 +130,66 @@
     </div>
   </div>
 
+  <section class="my-32">
+    <div class="lg:flex max-w-5xl mx-auto gap-x-10 px-4 lg:px-0">
+      <div class="lg:w-1/2 mb-10 lg:mb-0">
+        <img src="pequenas-ausencias.png" alt="Capa do livro Pequenas Ausências" class="block max-w-full lg:max-w-sm mx-auto mb-4" />
+
+        <div class="flex flex-col items-center text-left mx-auto">
+          <span class="text-sm block mt-2">
+            🚚 Frete grátis para todo Brasil
+          </span>
+
+          <span class="text-sm block mt-2">
+            ✍️ Autografado pela autora
+          </span>
+
+          <span class="text-sm block mt-2">
+            ✨ Publicado de forma independente
+          </span>
+        </div>
+      </div>
+      <div class="lg:w-1/2">
+        <h2 class="text-3xl lg:text-4xl text-white font-medium font-['Literata'] mb-3">
+          Pequenas Ausências
+        </h2>
+
+        <p class="text-sm mb-4">por Dayanne Dockhorn</p>
+
+        <div class="flex gap-x-4 mb-4">
+          <div class="p-4 rounded-md border border-white border-dashed cursor-not-allowed opacity-50">
+            <p class="text-xs mb-1">eBook</p>
+            <p class="text-sm">Em breve</p>
+          </div>
+
+          <div class="p-4 rounded-md border-3 border-white border-dashed cursor-pointer bg-[#c998c3] transition text-black">
+            <p class="text-xs mb-1">Impresso</p>
+            <p class="font-bold">R$ 69,00</p>
+          </div>
+        </div>
+
+        <div class="prose prose-white prose-p:text-white prose-p:text-sm prose-p:leading-relaxed mb-4">
+          <p>Pequenas Ausências é um ensaio sobre um tipo de perda particularmente dolorosa: o luto pelos animais de companhia.</p>
+
+          <p>A partir da despedida de Floqui, sua coelha de estimação, Dayanne Dockhorn escreve cartas que expressam o que permanece após uma perda repentina — as pequenas ausências sentidas no dia a dia.</p>
+
+          <p>É a proximidade da morte que a faz refletir sobre a vida e logo notar o silêncio que envolve o luto pelos animais de estimação, apesar do gradual protagonismo que eles têm recebido na nossa vida.</p>
+
+          <p>Em uma narrativa breve, delicada e sensível, a autora lança um olhar único sobre um tema universal.</p>
+        </div>
+
+        <button class="checkout-button w-full block bg-[#c998c3] text-black px-6 py-2 rounded-md font-bold text-center no-underline hover:bg-[#b87caf] transition">
+          Comprar o livro
+        </button>
+
+        <div class="p-4 rounded-lg bg-[#282a43] text-sm mt-6 font-['Literata'] leading-loose text-center">
+          &ldquo;A escritora nos conecta com nossas próprias perdas, escancaradas nos pequenos gestos e detalhes, nas pequenas ausências diárias. Dayanne usa da linguagem e de jogos de palavras que encantam e realçam a preciosidade de sua escrita.&rdquo;<br>
+          &ndash; Rai Gradowski
+        </div>
+      </div>
+    </div>
+  </section>
+
   <div class="bg-white py-24">
     <div class="container mx-auto lg:flex justify-center gap-x-20">
       <div class="max-w-80 mx-auto lg:mx-0 h-fit bg-[#DCD6F7]">
@@ -172,6 +231,144 @@
 </footer>
 </div>
 
+<div id="checkout-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
+
+<div id="checkout-form" class="fixed top-0 right-0 h-full w-full md:w-[480px] bg-white p-8 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto shadow-xl z-50">
+  <form
+    class="flex flex-col text-black gap-y-4"
+    action="https://api.web3forms.com/submit"
+    method="POST"
+  >
+    <input
+      type="hidden"
+      name="access_key"
+      value="3f7b0cf6-79e7-46be-a63e-4c426e2cd2c5"
+    />
+
+    <button id="close-drawer" class="absolute top-4 right-4 text-black hover:opacity-70">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+        <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
+      </svg>
+    </button>
+
+    <h2 class="text-black text-2xl font-medium font-['Literata'] mb-2">
+      Dados de entrega
+    </h2>
+
+    <div class="bg-[var(--light-green)] text-xs text-black px-4 py-2.5 rounded-md text-center">
+      🚚 Frete grátis para todo Brasil
+    </div>
+
+    <div class="flex flex-col gap-y-1">
+      <label for="nome" class="text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
+        Nome completo
+      </label>
+      <input
+        type="text"
+        name="nome"
+        placeholder="Nome completo"
+        class="form-input"
+        id="nome"
+        required
+      />
+    </div>
+
+    <div class="flex flex-col gap-y-1">
+      <label for="email" class="text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
+        Email
+      </label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        class="form-input"
+        id="email"
+        autocomplete="email"
+        required
+      />
+    </div>
+
+    <div class="flex flex-col gap-y-1">
+      <label for="dedicatoria" class="text-black text-balance uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
+        O livro será autografado?
+      </label>
+      <textarea
+        placeholder="Se sim, para quem?"
+        name="dedicatoria"
+        id="dedicatoria"
+        class="form-input"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="flex flex-col gap-y-1">
+      <label for="cep" class="text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
+        CEP
+      </label>
+      <input
+        id="cep"
+        name="cep"
+        type="text"
+        placeholder="CEP"
+        class="form-input"
+        max-length="20"
+        inputmode="numeric"
+        autocomplete="postal-code"
+        required
+      />
+      <a
+        href="http://www.buscacep.correios.com.br/sistemas/buscacep/"
+        target="_blank"
+        class="text-black underline text-xs"
+      >
+        Não sei meu CEP
+      </a>
+    </div>
+
+    <input type="hidden" name="street" required>
+    <input type="hidden" name="city" required>
+    <input type="hidden" name="state" required>
+
+    <div id="endereco" class="flex flex-col lg:flex-row gap-y-4 gap-x-4">
+      <div class="grow">
+        <label for="numero" class="block text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
+          Número
+        </label>
+        <input
+          type="text"
+          name="numero"
+          placeholder="Número"
+          class="form-input block w-full"
+          id="numero"
+          required
+        />
+      </div>
+      <div class="grow">
+        <label for="complemento" class="block text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
+          Complemento
+        </label>
+        <input
+          type="text"
+          name="complemento"
+          placeholder="Complemento"
+          class="form-input block w-full"
+          id="complemento"
+        />
+      </div>
+    </div>
+
+    <div>
+      <button type="submit" class="bg-[var(--light-pink)] text-black px-6 py-2 rounded-md font-bold text-center no-underline hover:bg-[#C99DC4] transition block w-full">
+        Ir para o pagamento
+      </button>
+
+      <div class="text-center text-xs text-black opacity-60 mt-2">
+        Pague com PIX, cartão de crédito ou boleto
+      </div>
+    </div>
+  </form>
+</div>
+
 <style>
 
   body {
@@ -188,6 +385,18 @@
 
 .container {
   padding: 0 15px;
+}
+#checkout-form::-webkit-scrollbar {
+  width: 8px;
+}
+
+#checkout-form::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+
+#checkout-form::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
 }
 </style>
 
@@ -251,10 +460,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function replaceCepWithAddress(data) {
     const addressHtml = `
-      <div class="bg-transparent border border-white border-dashed text-sm text-white p-4">
+      <div class="bg-transparent border border-black border-dashed text-sm text-black p-4">
         <div class="flex items-center gap-x-4 review-block-detailed-item">
           <div class="user-detail-icon icon-area">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#000" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"></path></svg>
           </div>
           <div class="center-area p-right">
             <div class="content">
@@ -265,7 +474,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div class="change-button-area ml-auto">
             <div class="block-flex">
-              <button id="change-address" class="text-[var(--light-pink)] underline text-xs" type="button">
+              <button id="change-address" class="text-black underline text-xs" type="button">
                 Alterar
               </button>
             </div>
@@ -273,6 +482,10 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     `;
+
+    form.querySelector('input[name="street"]').value = data.street;
+    form.querySelector('input[name="city"]').value = data.city;
+    form.querySelector('input[name="state"]').value = data.state;
 
     const addressElement = document.createElement('div');
     addressElement.innerHTML = addressHtml;
@@ -293,6 +506,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Add event listener to the "Alterar" button
     const changeButton = addressElement.querySelector('#change-address');
     changeButton.addEventListener('click', () => {
+      form.querySelector('input[name="street"]').value = '';
+      form.querySelector('input[name="city"]').value = '';
+      form.querySelector('input[name="state"]').value = '';
+
       container.parentNode.replaceChild(cepInput, container);
       cepInput.value = '';
       cepInput.disabled = false;
@@ -327,20 +544,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Get selected delivery option
-    const selectedDelivery = form.querySelector('input[name="entrega"]:checked');
-    if (!selectedDelivery) {
-      alert('Por favor, selecione uma opção de entrega.');
-      return;
-    }
-
-    // Get payment option
-    const selectedPayment = form.querySelector('input[name="pagamento"]:checked');
-    if (!selectedPayment) {
-      alert('Por favor, selecione uma opção de pagamento.');
-      return;
-    }
-
     // Update button text and disable it
     submitButton.textContent = 'Processando seus dados...';
     submitButton.disabled = true;
@@ -367,19 +570,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Handle success (e.g., show success message, clear form)
         form.reset();
 
-        // Determine which Nubank link to use
-        const nubankLink = selectedDelivery.id === 'retirar'
-          ? 'https://nubank.com.br/cobrar/1caesf/66f55d32-40f3-411a-8c5a-884537475f31'
-          : 'https://nubank.com.br/cobrar/1caesf/66f55dcc-b099-4074-8072-ef5175e8c9db';
-
-        const cardLink = selectedDelivery.id === 'retirar'
-        ? 'https://pay.infinitepay.io/dayanne-dockhorn/VC1D-10rqCMwXGZ-55,00/'
-        : 'https://pay.infinitepay.io/dayanne-dockhorn/VC1D-43TNreL6gF-75,00/';
-
-        // Open Nubank link in a new tab
-        window.location.href = selectedPayment.id === 'pix'
-          ? nubankLink
-          : cardLink;
+        // Redirect to checkout page
+        window.location.href = 'https://loja.infinitepay.io/dayanne-dockhorn/cxs0623-livro-pequenas-ausencias';
       } else {
         console.error(result.message);
         throw new Error('Erro ao enviar o formulário');
@@ -394,6 +586,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const checkoutForm = document.getElementById('checkout-form');
+    const checkoutBackdrop = document.getElementById('checkout-backdrop');
+    const closeDrawer = document.getElementById('close-drawer');
+    const buyButtons = document.querySelectorAll('button.checkout-button');
+
+    function openDrawer() {
+      checkoutForm.classList.remove('translate-x-full');
+      checkoutBackdrop.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawerHandler() {
+      checkoutForm.classList.add('translate-x-full');
+      checkoutBackdrop.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    buyButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        openDrawer();
+      });
+    });
+
+    closeDrawer.addEventListener('click', closeDrawerHandler);
+    checkoutBackdrop.addEventListener('click', closeDrawerHandler);
+  });
 </script>
 </body>
 </html>
