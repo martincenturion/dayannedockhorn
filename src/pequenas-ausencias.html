@@ -76,7 +76,6 @@
       <a
       href="#checkout"
       class="inline-block bg-[var(--light-pink)] text-[#1f223f] px-8 py-2.5 rounded-md font-bold text-center no-underline hover:bg-[#c998c3] transition text-lg"
-      target="_blank"
     >
       Comprar o livro
       </a>
@@ -121,7 +120,6 @@
           <a
             href="#checkout"
             class="inline-block bg-[var(--primary)] text-white px-6 py-2 rounded-md font-bold text-center no-underline hover:bg-[#333863] transition"
-            target="_blank"
           >
             Quero meu livro autografado!
           </a>
@@ -225,10 +223,10 @@
 </main>
 
 <div class="bg-white text-[var(--primary)] ">
-<footer class="flex justify-between align-center  mx-10 py-5 border-t border-dashed border-[var(--primary)] opacity-80">
-  <p class="text-sm uppercase tracking-widest m-0">&copy; Dayanne Dockhorn</p>
-  <p class="text-sm uppercase tracking-widest m-0">&ndash; 13 &ndash;</p>
-</footer>
+  <footer class="flex justify-between align-center  mx-10 py-5 border-t border-dashed border-[var(--primary)] opacity-80">
+    <p class="text-sm uppercase tracking-widest m-0">&copy; Dayanne Dockhorn</p>
+    <p class="text-sm uppercase tracking-widest m-0">&ndash; 13 &ndash;</p>
+  </footer>
 </div>
 
 <div id="checkout-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
@@ -370,42 +368,36 @@
 </div>
 
 <style>
-
   body {
     background-color: var(--primary);
   }
-.top-bar {
-  background-color: var(--light-green);
-  color: #000;
-  font-size: 1.75rem;
-  margin: 1rem;
-  padding: 10px 0;
-  text-align: center;
-}
-
-.container {
-  padding: 0 15px;
-}
-#checkout-form::-webkit-scrollbar {
-  width: 8px;
-}
-
-#checkout-form::-webkit-scrollbar-track {
-  background: var(--primary);
-}
-
-#checkout-form::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-}
+  .top-bar {
+    background-color: var(--light-green);
+    color: #000;
+    font-size: 1.75rem;
+    margin: 1rem;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .container {
+    padding: 0 15px;
+  }
+  #checkout-form::-webkit-scrollbar {
+    width: 8px;
+  }
+  #checkout-form::-webkit-scrollbar-track {
+    background: var(--primary);
+  }
+  #checkout-form::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+  }
 </style>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('form');
   const submitButton = form.querySelector('button[type="submit"]');
-  const entregaInputs = form.querySelectorAll('input[name="entrega"]');
-  const paymentInputs = form.querySelectorAll('input[name="pagamento"]');
   const cepInput = form.querySelector('#cep');
   const cepLabel = form.querySelector('label[for="cep"]');
   const enderecoContainer = form.querySelector('#endereco');
@@ -413,14 +405,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hide address fields on load
   enderecoContainer.style.display = 'none';
-
-  // Update submit button text when delivery option is selected
-  paymentInputs.forEach(input => {
-    input.addEventListener('change', (e) => {
-      const method = e.target.id === 'pix' ? 'PIX' : 'cartão de crédito';
-      submitButton.textContent = `Pagar com ${method}`;
-    });
-  });
 
   // Create loader element
   const loader = document.createElement('span');
