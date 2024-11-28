@@ -75,11 +75,14 @@
     <div class="flex flex-col items-center justify-center mt-6 space-y-2.5">
       <a
       href="#checkout"
-      class="inline-block bg-[var(--light-pink)] text-[#1f223f] px-8 py-2.5 rounded-md font-bold text-center no-underline hover:bg-[#c998c3] transition text-lg"
+      class="inline-block bg-[var(--light-pink)] text-[#1f223f] px-8 py-2.5 rounded-full font-bold text-center no-underline hover:bg-[#c998c3] transition text-lg"
     >
       Comprar o livro
       </a>
-      <span class="text-sm text-white opacity-70">🚚 Frete grátis para todo Brasil</span>
+      <span class="text-sm text-white opacity-70 flex gap-x-2 justify-center items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#fff" viewBox="0 0 256 256"><path d="M223.68,66.15,135.68,18a15.88,15.88,0,0,0-15.36,0l-88,48.17a16,16,0,0,0-8.32,14v95.64a16,16,0,0,0,8.32,14l88,48.17a15.88,15.88,0,0,0,15.36,0l88-48.17a16,16,0,0,0,8.32-14V80.18A16,16,0,0,0,223.68,66.15ZM128,32l80.34,44-29.77,16.3-80.35-44ZM128,120,47.66,76l33.9-18.56,80.34,44ZM40,90l80,43.78v85.79L40,175.82Zm176,85.78h0l-80,43.79V133.82l32-17.51V152a8,8,0,0,0,16,0V107.55L216,90v85.77Z"></path></svg>
+        <span>Frete grátis para todo Brasil</span>
+      </span>
     </div>
   </div>
 
@@ -119,7 +122,7 @@
 
           <a
             href="#checkout"
-            class="inline-block bg-[var(--primary)] text-white px-6 py-2 rounded-md font-bold text-center no-underline hover:bg-[#333863] transition"
+            class="inline-block bg-[var(--primary)] text-white px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#333863] transition"
           >
             Quero meu livro autografado!
           </a>
@@ -154,20 +157,10 @@
 
         <p class="text-sm mb-4">por Dayanne Dockhorn</p>
 
-        <div class="flex gap-x-4 mb-4">
-          <div class="p-4 rounded-md border border-white border-dashed cursor-not-allowed opacity-50">
-            <p class="text-xs mb-1">eBook</p>
-            <p class="text-sm">Em breve</p>
-          </div>
+        <hr class="border-white my-4 opacity-25"/>
 
-          <div class="p-4 rounded-md border-3 border-white border-dashed cursor-pointer bg-[#c998c3] transition text-black">
-            <p class="text-xs mb-1">Impresso</p>
-            <p class="font-bold">R$ 65,00</p>
-          </div>
-        </div>
-
-        <div class="prose prose-white prose-p:text-white prose-p:text-sm prose-p:leading-relaxed mb-4">
-          <p>Pequenas Ausências é um ensaio sobre um tipo de perda particularmente dolorosa: o luto pelos animais de companhia.</p>
+        <div class="prose prose-white prose-p:text-white prose-p:text-base prose-p:leading-relaxed mb-6">
+          <p><strong class="text-white">Pequenas Ausências</strong> é um ensaio sobre um tipo de perda particularmente dolorosa: o luto pelos animais de companhia.</p>
 
           <p>A partir da despedida de Floqui, sua coelha de estimação, Dayanne Dockhorn escreve cartas que expressam o que permanece após uma perda repentina — as pequenas ausências sentidas no dia a dia.</p>
 
@@ -175,7 +168,6 @@
 
           <p>Em uma narrativa breve, delicada e sensível, a autora lança um olhar único sobre um tema universal.</p>
         </div>
-
 
         <!--
         {#
@@ -189,10 +181,22 @@
         #}
         -->
 
+        <div class="flex flex-col gap-y-4">
+          <button
+            type="button"
+            class="checkout-button w-full block bg-[#c998c3] text-black px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#b87caf] transition"
+          >
+            Comprar o livro impresso (R$ 65,00)
+          </button>
 
-        <button class="checkout-button w-full block bg-[#c998c3] text-black px-6 py-2 rounded-md font-bold text-center no-underline hover:bg-[#b87caf] transition">
-          Comprar o livro
-        </button>
+          <a
+            href="https://amzn.to/3VdowA1"
+            target="_blank"
+            class="w-full block bg-[#c998c3] text-black px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#b87caf] transition"
+          >
+          Comprar o eBook Kindle
+          </a>
+        </div>
 
         <div class="p-4 rounded-lg bg-[#282a43] text-sm mt-6 font-['Literata'] leading-loose text-center">
           &ldquo;A escritora nos conecta com nossas próprias perdas, escancaradas nos pequenos gestos e detalhes, nas pequenas ausências diárias. Dayanne usa da linguagem e de jogos de palavras que encantam e realçam a preciosidade de sua escrita.&rdquo;<br>
@@ -370,7 +374,7 @@
     </div>
 
     <div>
-      <button type="submit" class="bg-[var(--light-pink)] text-black px-6 py-2 rounded-md font-bold text-center no-underline hover:bg-[#C99DC4] transition block w-full">
+      <button type="submit" class="bg-[var(--light-pink)] text-black px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#C99DC4] transition block w-full">
         Ir para o pagamento
       </button>
 

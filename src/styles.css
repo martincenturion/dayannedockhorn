@@ -1935,6 +1935,11 @@ select {
   margin-bottom: 8rem;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -2156,6 +2161,11 @@ select {
 
 .gap-y-5 {
   row-gap: 1.25rem;
+}
+
+.gap-x-2 {
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
 }
 
 .space-y-2\.5 > :not([hidden]) ~ :not([hidden]) {
@@ -2538,6 +2548,14 @@ select {
 
 .opacity-80 {
   opacity: 0.8;
+}
+
+.opacity-45 {
+  opacity: 0.45;
+}
+
+.opacity-25 {
+  opacity: 0.25;
 }
 
 .shadow-xl {
@@ -2953,8 +2971,17 @@ button[disabled] {
   line-height: 1.25rem;
 }
 
+.prose-p\:text-base :is(:where(p):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .prose-p\:leading-relaxed :is(:where(p):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
   line-height: 1.625;
+}
+
+.prose-p\:leading-loose :is(:where(p):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
+  line-height: 2;
 }
 
 .prose-p\:text-white :is(:where(p):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
