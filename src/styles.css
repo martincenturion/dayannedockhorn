@@ -2090,14 +2090,6 @@ select {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.cursor-not-allowed {
-  cursor: not-allowed;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -2132,6 +2124,11 @@ select {
        column-gap: 2.5rem;
 }
 
+.gap-x-2 {
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
+
 .gap-x-20 {
   -moz-column-gap: 5rem;
        column-gap: 5rem;
@@ -2163,9 +2160,8 @@ select {
   row-gap: 1.25rem;
 }
 
-.gap-x-2 {
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
+.gap-y-6 {
+  row-gap: 1.5rem;
 }
 
 .space-y-2\.5 > :not([hidden]) ~ :not([hidden]) {
@@ -2214,6 +2210,10 @@ select {
   border-width: 8px;
 }
 
+.border-2 {
+  border-width: 2px;
+}
+
 .border-t {
   border-top-width: 1px;
 }
@@ -2247,6 +2247,11 @@ select {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.border-\[\#c998c3\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(201 152 195 / var(--tw-border-opacity));
 }
 
 .bg-\[\#282a43\] {
@@ -2534,6 +2539,10 @@ select {
   text-decoration-line: none;
 }
 
+.opacity-25 {
+  opacity: 0.25;
+}
+
 .opacity-50 {
   opacity: 0.5;
 }
@@ -2548,14 +2557,6 @@ select {
 
 .opacity-80 {
   opacity: 0.8;
-}
-
-.opacity-45 {
-  opacity: 0.45;
-}
-
-.opacity-25 {
-  opacity: 0.25;
 }
 
 .shadow-xl {
@@ -2962,13 +2963,13 @@ button[disabled] {
   background-color: rgb(201 152 195 / var(--tw-bg-opacity));
 }
 
-.hover\:opacity-70:hover {
-  opacity: 0.7;
+.hover\:text-black:hover {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.prose-p\:text-sm :is(:where(p):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+.hover\:opacity-70:hover {
+  opacity: 0.7;
 }
 
 .prose-p\:text-base :is(:where(p):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
@@ -2978,10 +2979,6 @@ button[disabled] {
 
 .prose-p\:leading-relaxed :is(:where(p):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
   line-height: 1.625;
-}
-
-.prose-p\:leading-loose :is(:where(p):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
-  line-height: 2;
 }
 
 .prose-p\:text-white :is(:where(p):not(:where([class~="not-prose"],[class~="not-prose"] *))) {
