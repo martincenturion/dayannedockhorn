@@ -194,21 +194,21 @@
         -->
 
         <div class="flex flex-col gap-y-5">
-          <button
-            type="button"
-            class="checkout-button w-full block bg-[#c998c3] text-black px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#b87caf] transition"
-          >
-            Comprar o livro impresso (R$ 65,00)
-          </button>
-
           <a
             href="https://amzn.to/3VdowA1"
             target="_blank"
             id="buyEbookButton"
-            class="w-full block bg-primary border-[#c998c3] border-2 text-white px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#c998c3] hover:text-black transition"
+            class="w-full block bg-[#c998c3] text-black px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#b87caf] transition"
           >
           Comprar o eBook Kindle
           </a>
+
+          <button
+            type="button"
+            class="checkout-button w-full block bg-primary border-[#c998c3] border-2 text-white px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#c998c3] hover:text-black transition"
+          >
+            Comprar o livro impresso
+          </button>
         </div>
 
         <div class="p-4 rounded-lg bg-[#282a43] text-sm mt-6 font-['Literata'] leading-loose text-center">
@@ -262,6 +262,102 @@
 
 <div id="checkout-backdrop" class="fixed inset-0 bg-black bg-opacity-50 hidden"></div>
 
+<div
+  id="outofstock-form"
+  class="fixed top-0 right-0 h-full w-full md:w-[480px] bg-white p-8 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto shadow-xl z-50"
+>
+  <button type="button" id="close-drawer" class="absolute top-4 right-4 text-black hover:opacity-70">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256">
+      <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
+    </svg>
+  </button>
+
+  <form
+    class="flex flex-col text-black gap-y-4"
+    action="https://api.web3forms.com/submit"
+    method="POST"
+  >
+    <input
+      type="hidden"
+      name="access_key"
+      value="3f7b0cf6-79e7-46be-a63e-4c426e2cd2c5"
+    />
+
+    <h2 class="text-black text-2xl font-medium font-['Literata'] mb-2">
+      Livro impresso esgotado
+    </h2>
+
+    <div class="bg-amber-100 border border-amber-200 text-xs md:text-sm text-black px-4 py-2.5 rounded-md text-center">
+      📢 Cadastre seu e-mail para ser avisado quando Pequenas Ausências voltar ao estoque!
+    </div>
+
+    <div class="flex flex-col gap-y-1">
+      <label
+        for="nome"
+        class="text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80"
+      >
+        Nome completo
+      </label>
+
+      <input
+        type="text"
+        name="nome"
+        placeholder="Nome completo"
+        class="form-input"
+        id="nome"
+        required
+      />
+    </div>
+
+    <div class="flex flex-col gap-y-1">
+      <label
+        for="email"
+        class="text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80"
+      >
+        Email
+      </label>
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        class="form-input"
+        id="email"
+        autocomplete="email"
+        required
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="bg-[var(--light-pink)] text-black px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#C99DC4] transition block w-full"
+    >
+      Avise-me
+    </button>
+  </form>
+
+  <div id="success-message" class="hidden mt-4">
+    <h2 class="text-black text-2xl font-medium font-['Literata'] mb-2">
+      Obrigada pelo seu interesse!
+    </h2>
+
+    <p class="text-base text-black mb-4">
+      Avisarei você quando o livro impresso voltar ao estoque.
+      Enquanto isso, você pode adquirir a versão digital do livro.
+    </p>
+
+    <a
+      href="https://amzn.to/3VdowA1"
+      target="_blank"
+      class="bg-[var(--light-pink)] text-black px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#C99DC4] transition block w-full"
+    >
+      Comprar o eBook Kindle
+    </a>
+  </div>
+</div>
+
+<!--
+{#
 <div id="checkout-form" class="fixed top-0 right-0 h-full w-full md:w-[480px] bg-white p-8 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto shadow-xl z-50">
   <form
     class="flex flex-col text-black gap-y-4"
@@ -397,6 +493,8 @@
     </div>
   </form>
 </div>
+#}
+-->
 
 <style>
   body {
@@ -433,6 +531,7 @@
     const cepLabel = form.querySelector('label[for="cep"]');
     const enderecoContainer = form.querySelector('#endereco');
     const naoSeiCepLink = form.querySelector('a[href*="buscacep.correios.com.br"]');
+    const successMessage = document.getElementById('success-message');
 
     // Hide address fields on load
     enderecoContainer.style.display = 'none';
@@ -591,8 +690,12 @@
           // Handle success (e.g., show success message, clear form)
           form.reset();
 
+          // Hide the form and show success message
+          form.classList.add('hidden');
+          successMessage.classList.remove('hidden');
+
           // Redirect to checkout page
-          window.location.href = 'https://loja.infinitepay.io/dayanne-dockhorn/cxs0623-livro-pequenas-ausencias';
+          // window.location.href = 'https://loja.infinitepay.io/dayanne-dockhorn/cxs0623-livro-pequenas-ausencias';
         } else {
           console.error(result.message);
           throw new Error('Erro ao enviar o formulário');
@@ -610,12 +713,15 @@
 </script>
 
 <script>
+  const referralEnabled = false;
   let referralBannerText = '';
   let storedReferral = localStorage.getItem('ref');
   let params = new URLSearchParams(document.location.search);
   let referralName = params.get('ref');
 
-  if (storedReferral === 'resgatecoelhosdasaude' || referralName === 'resgatecoelhosdasaude') {
+  if (referralEnabled === false) {
+    localStorage.removeItem('ref');
+  } else if (storedReferral === 'resgatecoelhosdasaude' || referralName === 'resgatecoelhosdasaude') {
     const referralBanner = document.getElementById('referralBanner');
     const ebookButton = document.getElementById('buyEbookButton');
 
@@ -631,7 +737,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    const checkoutForm = document.getElementById('checkout-form');
+    const checkoutForm = document.getElementById('outofstock-form');
     const checkoutBackdrop = document.getElementById('checkout-backdrop');
     const closeDrawer = document.getElementById('close-drawer');
     const buyButtons = document.querySelectorAll('button.checkout-button');
