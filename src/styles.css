@@ -2020,10 +2020,6 @@ select {
   margin-top: 2rem;
 }
 
-.mb-8 {
-  margin-bottom: 2rem;
-}
-
 .block {
   display: block;
 }
@@ -2034,10 +2030,6 @@ select {
 
 .flex {
   display: flex;
-}
-
-.grid {
-  display: grid;
 }
 
 .hidden {
@@ -2085,6 +2077,10 @@ select {
   max-width: 64rem;
 }
 
+.max-w-7xl {
+  max-width: 80rem;
+}
+
 .max-w-80 {
   max-width: 20rem;
 }
@@ -2103,10 +2099,6 @@ select {
 
 .max-w-xl {
   max-width: 36rem;
-}
-
-.max-w-7xl {
-  max-width: 80rem;
 }
 
 .grow {
@@ -2134,33 +2126,12 @@ select {
   scroll-snap-align: center;
 }
 
-.scroll-ml-6 {
-  scroll-margin-left: 1.5rem;
-}
-
-.scroll-p-6 {
-  scroll-padding: 1.5rem;
-}
-
-.scroll-px-6 {
-  scroll-padding-left: 1.5rem;
-  scroll-padding-right: 1.5rem;
-}
-
-.scroll-pl-6 {
-  scroll-padding-left: 1.5rem;
-}
-
 .scroll-pl-4 {
   scroll-padding-left: 1rem;
 }
 
 .scroll-pr-4 {
   scroll-padding-right: 1rem;
-}
-
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .flex-col {
@@ -2193,6 +2164,10 @@ select {
 
 .gap-6 {
   gap: 1.5rem;
+}
+
+.gap-12 {
+  gap: 3rem;
 }
 
 .gap-x-0\.5 {
@@ -2246,11 +2221,6 @@ select {
   row-gap: 1.25rem;
 }
 
-.gap-x-6 {
-  -moz-column-gap: 1.5rem;
-       column-gap: 1.5rem;
-}
-
 .space-y-2\.5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.625rem * calc(1 - var(--tw-space-y-reverse)));
@@ -2279,10 +2249,6 @@ select {
 
 .rounded-full {
   border-radius: 9999px;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
 }
 
 .rounded-md {
@@ -2317,6 +2283,11 @@ select {
   border-style: none;
 }
 
+.border-\[\#B8CD93\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(184 205 147 / var(--tw-border-opacity, 1));
+}
+
 .border-\[\#c998c3\] {
   --tw-border-opacity: 1;
   border-color: rgb(201 152 195 / var(--tw-border-opacity, 1));
@@ -2348,21 +2319,6 @@ select {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
-}
-
-.border-\[\#B8CD93\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(184 205 147 / var(--tw-border-opacity, 1));
-}
-
-.border-\[\#DEE8CD\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(222 232 205 / var(--tw-border-opacity, 1));
-}
-
-.bg-\[\#282a43\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(40 42 67 / var(--tw-bg-opacity, 1));
 }
 
 .bg-\[\#A6B1E1\] {
@@ -2544,12 +2500,12 @@ select {
   text-align: right;
 }
 
-.align-top {
-  vertical-align: top;
-}
-
 .font-\[\'Literata\'\] {
   font-family: 'Literata';
+}
+
+.font-\[\'Literate\'\] {
+  font-family: 'Literate';
 }
 
 .text-2xl {
@@ -2620,10 +2576,6 @@ select {
   font-style: italic;
 }
 
-.leading-loose {
-  line-height: 2;
-}
-
 .leading-relaxed {
   line-height: 1.625;
 }
@@ -2646,6 +2598,11 @@ select {
   color: rgb(40 42 67 / var(--tw-text-opacity, 1));
 }
 
+.text-\[\#474A76\] {
+  --tw-text-opacity: 1;
+  color: rgb(71 74 118 / var(--tw-text-opacity, 1));
+}
+
 .text-\[var\(--pink\)\] {
   color: var(--pink);
 }
@@ -2662,20 +2619,6 @@ select {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.text-\[\#282a43\/80\] {
-  color: #282a43/80;
-}
-
-.text-\[\#696DA5\] {
-  --tw-text-opacity: 1;
-  color: rgb(105 109 165 / var(--tw-text-opacity, 1));
-}
-
-.text-\[\#474A76\] {
-  --tw-text-opacity: 1;
-  color: rgb(71 74 118 / var(--tw-text-opacity, 1));
 }
 
 .underline {
@@ -2777,6 +2720,10 @@ nav a:hover:after {
 
 .image-shadow:hover {
   transform: translate(0px, 0px);
+}
+
+.solid-shadow {
+  box-shadow: 10px 10px 0 #cfddb8;
 }
 
 .about-book {
@@ -3161,6 +3108,10 @@ button[disabled] {
     margin-right: auto;
   }
 
+  .md\:mb-0 {
+    margin-bottom: 0px;
+  }
+
   .md\:block {
     display: block;
   }
@@ -3250,6 +3201,10 @@ button[disabled] {
     max-width: 24rem;
   }
 
+  .lg\:snap-none {
+    scroll-snap-type: none;
+  }
+
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -3270,8 +3225,16 @@ button[disabled] {
     justify-content: center;
   }
 
-  .lg\:gap-6 {
-    gap: 1.5rem;
+  .lg\:gap-12 {
+    gap: 3rem;
+  }
+
+  .lg\:overflow-auto {
+    overflow: auto;
+  }
+
+  .lg\:overflow-visible {
+    overflow: visible;
   }
 
   .lg\:px-0 {
@@ -3297,5 +3260,9 @@ button[disabled] {
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .lg\:first\:pl-0:first-child {
+    padding-left: 0px;
   }
 }

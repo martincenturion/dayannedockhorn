@@ -248,18 +248,18 @@ amazonUrl: "https://amzn.to/3VdowA1"
         Avaliações dos leitores
       </h2>
 
-      <div class="snap-x snap-mandatory scroll-pl-4 scroll-pr-4 overflow-x-auto flex items-start gap-6 lg:grid lg:grid-cols-4 lg:justify-center max-w-7xl mx-auto">
+      <div class="snap-x snap-mandatory scroll-pl-4 scroll-pr-4 overflow-x-auto lg:overflow-visible flex items-start gap-6 lg:gap-12 lg:grid lg:grid-cols-4 lg:justify-center max-w-7xl mx-auto">
         {% for reviews in reviewsPt | slice(4) %}
-          <div class="first:pl-4 last:pr-4 flex items-start lg:flex-col gap-6">
+          <div class="first:pl-4 last:pr-4 lg:first:pl-0 flex items-start lg:flex-col gap-6 lg:gap-12">
             {% for review in reviews %}
               <blockquote
-                class="snap-center bg-white p-6 border border-[#B8CD93] min-w-72"
+                class="solid-shadow snap-center bg-white mb-2 md:mb-0 p-6 min-w-72"
                 itemscope
                 itemtype="http://schema.org/Review"
               >
                 <header>
                   <h3
-                    class="font-bold"
+                    class="font-bold font-['Literata']"
                     itemprop="name"
                   >
                     {{ review.title }}
