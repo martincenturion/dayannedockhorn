@@ -197,18 +197,18 @@ amazonUrl: "https://amzn.to/3VdowA1"
     </div>
   </section>
 
-  <div id="reviews" class="py-32 px-4 bg-[var(--green)] text-[#282a43]">
+  <div id="reviews" class="py-24 lg:px-4 bg-[var(--green)] text-[#282a43]">
     <div class=" mx-auto">
       <h2 class="text-center text-4xl lowercase font-medium font-['Literata'] mb-10">
         Reader Reviews
       </h2>
 
-      <div class="flex gap-6 justify-center">
-        {% for reviews in reviewsEn | slice(5) %}
-          <div class="flex flex-col gap-6 col-{{ loop.index }}">
+      <div class="snap-x snap-mandatory scroll-pl-4 scroll-pr-4 overflow-x-auto flex items-start gap-6 lg:grid lg:grid-cols-4 lg:justify-center max-w-7xl mx-auto">
+        {% for reviews in reviewsEn | slice(4) %}
+          <div class="first:pl-4 last:pr-4 flex items-start lg:flex-col gap-6">
             {% for review in reviews %}
               <blockquote
-                class="bg-white p-6 border border-[#B8CD93]"
+                class="snap-center bg-white p-6 border border-[#B8CD93] min-w-72"
                 itemscope
                 itemtype="http://schema.org/Review"
               >
