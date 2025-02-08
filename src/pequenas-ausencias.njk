@@ -72,7 +72,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
   <div class="rounded-sm bg-[var(--light-pink)] py-4 w-full border-8 border-[var(--primary)]">
     <div class="container mx-auto flex flex-col md:flex-row justify-center items-center gap-y-2 gap-x-4">
       <p class="text-black text-sm lg:text-base text-center">
-        Pequenas Ausências está de volta! Reserve já a sua 2ª edição.
+        Pequenas Ausências está de volta! Reserve já o seu exemplar.
       </p>
 
       <a href="#checkout" class="block bg-[var(--primary)] text-white px-3 py-1.5 rounded-md font-semibold text-center no-underline hover:bg-[#333863] transition">
@@ -506,7 +506,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
     </h2>
 
     <div class="bg-amber-100 text-sm text-black px-4 py-2.5 rounded-md prose">
-      <p>📢 Preencha seus dados para reservar seu exemplar da 2ª edição de Pequenas Ausências,
+      <p>📢 Preencha seus dados para reservar seu exemplar da 2ª impressão de Pequenas Ausências,
       com <strong>previsão de envio para abril de 2025</strong>.</p>
 
       <p>Após completar o cadastro, você será direcionado para a página de pagamento para
@@ -517,6 +517,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
       <label for="nome" class="text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
         Nome completo
       </label>
+
       <input
         type="text"
         name="nome"
@@ -531,6 +532,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
       <label for="email" class="text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
         Email
       </label>
+
       <input
         type="email"
         name="email"
@@ -540,6 +542,17 @@ amazonUrl: "https://amzn.to/3VdowA1"
         autocomplete="email"
         required
       />
+    </div>
+
+    <div class="flex flex-col gap-y-1">
+      <label for="quantidade" class="text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
+        Quantidade
+      </label>
+
+      <select name="quantidade" required>
+        <option value="1" data-price="69,00">1 exemplar</option>
+        <option value="2" data-price="123,00">2 exemplares (desconto R$ 15)</option>
+      </select>
     </div>
 
     <div class="flex flex-col gap-y-1">
@@ -613,7 +626,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
 
     <div>
       <button type="submit" class="block w-full btn-primary">
-        Ir para o pagamento - R$ 69,00
+        Ir para o pagamento - R$ <span id="price">69,00</span>
       </button>
 
       <div class="text-center text-xs text-black opacity-60 mt-2">
@@ -641,7 +654,16 @@ amazonUrl: "https://amzn.to/3VdowA1"
     const cepLabel = form.querySelector('label[for="cep"]');
     const enderecoContainer = form.querySelector('#endereco');
     const naoSeiCepLink = form.querySelector('a[href*="buscacep.correios.com.br"]');
-    const successMessage = document.getElementById('success-message');
+    // const successMessage = document.getElementById('success-message');
+    const quantitySelect = form.querySelector('select[name="quantidade"]');
+    const priceSpan = document.getElementById('price');
+
+    // Update the displayed price based on the selected quantity
+    quantitySelect.addEventListener('change', (e) => {
+      const selectedOption = e.target.options[e.target.selectedIndex];
+      const price = selectedOption.getAttribute('data-price');
+      priceSpan.textContent = price;
+    });
 
     // Hide address fields on load
     enderecoContainer.style.display = 'none';
@@ -776,6 +798,16 @@ amazonUrl: "https://amzn.to/3VdowA1"
       // Create FormData object
       const formData = new FormData(form);
 
+      // Determine the redirect URL based on the selected quantity from FormData
+      const selectedQuantity = formData.get('quantidade');
+      let redirectUrl;
+
+      if (selectedQuantity === "1") {
+        redirectUrl = 'https://loja.infinitepay.io/dayanne-dockhorn/cxs0623-livro-pequenas-ausencias';
+      } else if (selectedQuantity === "2") {
+        redirectUrl = 'https://loja.infinitepay.io/dayanne-dockhorn/cxs0623-livro-pequenas-ausencias-2';
+      }
+
       if (storedReferral !== null) {
         formData.set('Referral', storedReferral);
       }
@@ -800,12 +832,10 @@ amazonUrl: "https://amzn.to/3VdowA1"
           // Handle success (e.g., show success message, clear form)
           form.reset();
 
-          // Hide the form and show success message
-          form.classList.add('hidden');
-          successMessage.classList.remove('hidden');
+          submitButton.textContent = 'Redirecionando para o pagamento...';
 
-          // Redirect to checkout page
-          // window.location.href = 'https://loja.infinitepay.io/dayanne-dockhorn/cxs0623-livro-pequenas-ausencias';
+          // Redirect to the checkout page
+          window.location.href = redirectUrl;
         } else {
           console.error(result.message);
           throw new Error('Erro ao enviar o formulário');
@@ -814,7 +844,6 @@ amazonUrl: "https://amzn.to/3VdowA1"
         console.error('Error:', error);
         alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
       } finally {
-        // Reset button text and re-enable it
         submitButton.textContent = originalButtonText;
         submitButton.disabled = false;
       }
