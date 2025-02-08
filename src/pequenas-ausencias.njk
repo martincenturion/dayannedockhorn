@@ -277,7 +277,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
 
   <div id="reviews" class="py-32 lg:px-4 bg-[var(--green)] text-[#282a43]">
     <div class=" mx-auto">
-      <h2 class="text-center text-4xl lowercase font-medium font-['Literata'] mb-10">
+      <h2 class="text-center text-4xl lowercase font-medium font-['Literata'] mb-10 px-4">
         Avaliações dos leitores
       </h2>
 
@@ -550,8 +550,8 @@ amazonUrl: "https://amzn.to/3VdowA1"
       </label>
 
       <select name="quantidade" required>
-        <option value="1" data-price="69,00">1 exemplar</option>
-        <option value="2" data-price="123,00">2 exemplares (desconto R$ 15)</option>
+        <option value="1" data-price="65,00">1 exemplar: R$ 65</option>
+        <option value="2" data-price="115,00">2 exemplares: R$ 115 [💎 desconto de R$ 15]</option>
       </select>
     </div>
 
@@ -559,6 +559,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
       <label for="dedicatoria" class="text-black text-balance uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
         O livro será autografado?
       </label>
+
       <textarea
         placeholder="Se sim, para quem?"
         name="dedicatoria"
@@ -572,6 +573,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
       <label for="cep" class="text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
         CEP
       </label>
+
       <input
         id="cep"
         name="cep"
@@ -601,6 +603,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
         <label for="numero" class="block text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
           Número
         </label>
+
         <input
           type="text"
           name="numero"
@@ -614,6 +617,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
         <label for="complemento" class="block text-black uppercase font-normal text-xs tracking-widest mb-1 opacity-80">
           Complemento
         </label>
+
         <input
           type="text"
           name="complemento"
@@ -626,7 +630,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
 
     <div>
       <button type="submit" class="block w-full btn-primary">
-        Ir para o pagamento - R$ <span id="price">69,00</span>
+        Ir para o pagamento - R$ <span id="price">65,00</span>
       </button>
 
       <div class="text-center text-xs text-black opacity-60 mt-2">
@@ -805,7 +809,7 @@ amazonUrl: "https://amzn.to/3VdowA1"
       if (selectedQuantity === "1") {
         redirectUrl = 'https://loja.infinitepay.io/dayanne-dockhorn/cxs0623-livro-pequenas-ausencias';
       } else if (selectedQuantity === "2") {
-        redirectUrl = 'https://loja.infinitepay.io/dayanne-dockhorn/cxs0623-livro-pequenas-ausencias-2';
+        redirectUrl = 'https://loja.infinitepay.io/dayanne-dockhorn/ckl2199-2-livros-pequenas-ausencias-preco-especial';
       }
 
       if (storedReferral !== null) {
