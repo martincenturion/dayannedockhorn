@@ -9,6 +9,30 @@
   --pink: #DCD6F7;
   --light-pink: #E6C7E2;
 }
+body {
+  background-color: var(--primary);
+}
+.top-bar {
+  background-color: var(--light-green);
+  color: #000;
+  font-size: 1.75rem;
+  margin: 1rem;
+  padding: 10px 0;
+  text-align: center;
+}
+.container {
+  padding: 0 15px;
+}
+#checkout-form::-webkit-scrollbar {
+  width: 8px;
+}
+#checkout-form::-webkit-scrollbar-track {
+  background: var(--primary);
+}
+#checkout-form::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
 nav a {
   position: relative;
 }
@@ -25,6 +49,12 @@ nav a:hover:after {
   background-image: url("highlight.svg");
   background-repeat: no-repeat;
   background-position: center;
+}
+.btn-primary {
+  @apply bg-[#c998c3] text-black px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#b87caf] transition;
+}
+.btn-outline {
+  @apply bg-transparent border-[#c998c3] border-2 text-white px-6 py-2 rounded-full font-bold text-center no-underline hover:bg-[#c998c3] hover:text-black transition;
 }
 .about-heading {
   background-image: url("sobre-mim.svg");
