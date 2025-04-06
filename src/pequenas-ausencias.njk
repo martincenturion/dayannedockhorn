@@ -225,7 +225,6 @@ amazonUrl: "https://amzn.to/41aSAQ9"
           <div class="ml-2">
             <a
               href="#reviews"
-              target="_blank"
               class="underline"
             >
               40 avaliações de clientes
@@ -262,7 +261,7 @@ amazonUrl: "https://amzn.to/41aSAQ9"
             type="button"
             class="checkout-button w-full block btn-primary"
           >
-            Comprar livro impresso (pré-venda)
+            Comprar livro impresso
           </button>
 
           {#
@@ -507,15 +506,12 @@ amazonUrl: "https://amzn.to/41aSAQ9"
     </button>
 
     <h2 class="text-black text-2xl font-medium font-['Literata'] mb-2">
-      Reserve seu exemplar
+      Compre seu exemplar
     </h2>
 
-    <div class="bg-amber-100 text-sm text-black px-4 py-2.5 rounded-md prose">
-      <p>📢 Preencha seus dados para reservar seu exemplar da 2ª impressão de Pequenas Ausências,
-      com <strong>previsão de envio para abril de 2025</strong>.</p>
-
-      <p>Após completar o cadastro, você será direcionado para a página de pagamento para
-        confirmar a sua compra.</p>
+    <div class="bg-[var(--green)] text-sm text-black px-4 py-2.5 rounded-md flex items-center justify-center gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256"><path d="M223.68,66.15,135.68,18a15.88,15.88,0,0,0-15.36,0l-88,48.17a16,16,0,0,0-8.32,14v95.64a16,16,0,0,0,8.32,14l88,48.17a15.88,15.88,0,0,0,15.36,0l88-48.17a16,16,0,0,0,8.32-14V80.18A16,16,0,0,0,223.68,66.15ZM128,32l80.34,44-29.77,16.3-80.35-44ZM128,120,47.66,76l33.9-18.56,80.34,44ZM40,90l80,43.78v85.79L40,175.82Zm176,85.78h0l-80,43.79V133.82l32-17.51V152a8,8,0,0,0,16,0V107.55L216,90v85.77Z"></path></svg>
+      <p>Frete grátis para todo Brasil</p>
     </div>
 
     <div class="flex flex-col gap-y-1">
@@ -556,7 +552,7 @@ amazonUrl: "https://amzn.to/41aSAQ9"
 
       <select name="quantidade" required>
         <option value="1" data-price="69,00">1 exemplar: R$ 69</option>
-        <option value="2" data-price="118,00">2 exemplares: R$ 118 [💎 desconto de R$ 20]</option>
+        <option value="2" data-price="128,00">2 exemplares: R$ 128 [💎 desconto de R$ 10]</option>
       </select>
     </div>
 
@@ -635,11 +631,11 @@ amazonUrl: "https://amzn.to/41aSAQ9"
 
     <div>
       <button type="submit" class="block w-full btn-primary">
-        Ir para o pagamento - R$ <span id="price">69,00</span>
+        Ir para o pagamento &ndash; R$ <span id="price">69,00</span>
       </button>
 
       <div class="text-center text-xs text-black opacity-60 mt-2">
-        Pague com PIX, cartão de crédito ou boleto
+        Pague com PIX ou cartão de crédito (em até 2x)
       </div>
     </div>
   </form>
