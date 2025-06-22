@@ -228,6 +228,11 @@ amazonUrl: "https://amzn.to/4hNKZwz"
                 itemscope
                 itemtype="http://schema.org/Review"
               >
+                <div itemprop="itemReviewed" itemscope itemtype="http://schema.org/Book">
+                  <meta itemprop="name" content="Moments Missed" />
+                  <meta itemprop="author" content="Dayanne Dockhorn" />
+                </div>
+
                 <header>
                   <h3
                     class="font-bold font-['Literata']"
@@ -274,6 +279,7 @@ amazonUrl: "https://amzn.to/4hNKZwz"
                     >
                   </div>
                 </footer>
+
               </blockquote>
             {% endfor %}
           </div>
