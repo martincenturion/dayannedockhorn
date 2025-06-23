@@ -164,7 +164,7 @@ amazonUrl: "https://amzn.to/4hNKZwz"
         <p class="text-sm mb-2">by Dayanne Dockhorn</p>
 
         <div class="flex gap-2 items-center text-sm">
-          <div>5.0</div>
+          <div>4.8</div>
 
           <div class="flex gap-x-0.5 items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#c60" viewBox="0 0 256 256"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"></path></svg>
@@ -176,10 +176,11 @@ amazonUrl: "https://amzn.to/4hNKZwz"
 
           <div class="ml-2">
             <a
-              href="#reviews"
+              href="https://amzn.to/41aSAQ9#averageCustomerReviewsAnchor"
+              target="_blank"
               class="underline"
             >
-              22 ratings
+              51 reader ratings
             </a>
           </div>
         </div>
@@ -228,7 +229,11 @@ amazonUrl: "https://amzn.to/4hNKZwz"
                 itemscope
                 itemtype="http://schema.org/Review"
               >
-                <div itemprop="itemReviewed" itemscope itemtype="http://schema.org/Book">
+                <div
+                  itemscope
+                  itemprop="itemReviewed"
+                  itemtype="http://schema.org/Book"
+                >
                   <meta itemprop="name" content="Moments Missed" />
                   <meta itemprop="author" content="Dayanne Dockhorn" />
                 </div>
@@ -426,8 +431,9 @@ amazonUrl: "https://amzn.to/4hNKZwz"
   </div>
 </div>
 
-<!--
+
 {#
+<!--
 <div id="checkout-form" class="fixed top-0 right-0 h-full w-full md:w-[480px] bg-white p-8 transform translate-x-full transition-transform duration-300 ease-in-out overflow-y-auto shadow-xl z-50">
   <form
     class="flex flex-col text-black gap-y-4"
@@ -563,8 +569,8 @@ amazonUrl: "https://amzn.to/4hNKZwz"
     </div>
   </form>
 </div>
-#}
 -->
+#}
 
 <style>
   body {
@@ -593,6 +599,9 @@ amazonUrl: "https://amzn.to/4hNKZwz"
   }
 </style>
 
+
+{#
+<!--
 <script>
   function redirectToPortuguese() {
     const userLang = navigator.language || navigator.userLanguage;
@@ -791,7 +800,11 @@ amazonUrl: "https://amzn.to/4hNKZwz"
     });
   });
 </script>
+-->
+#}
 
+{#
+<!--
 <script>
   const referralEnabled = false;
   let referralBannerText = '';
@@ -845,5 +858,8 @@ amazonUrl: "https://amzn.to/4hNKZwz"
     checkoutBackdrop.addEventListener('click', closeDrawerHandler);
   });
 </script>
+-->
+#}
+
 </body>
 </html>
