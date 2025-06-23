@@ -1,0 +1,4 @@
+Sitemap: https://dayannedockhorn.com/sitemap.xml
+
+User-agent: *
+Disallow:
