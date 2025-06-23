@@ -59,7 +59,6 @@ amazonUrl: "https://amzn.to/41aSAQ9"
 </script>
 
 <body class="text-white">
-  {#
   <div id="referralBanner" class="hidden bg-[var(--light-pink)] py-4 w-full border-8 border-[var(--primary)] fixed bottom-0 z-50">
     <div class="container mx-auto flex flex-col md:flex-row justify-center items-center gap-y-2 gap-x-4">
       <p class="text-black text-sm lg:text-base text-center">
@@ -71,7 +70,6 @@ amazonUrl: "https://amzn.to/41aSAQ9"
       </a>
     </div>
   </div>
-  #}
 
   <div class="rounded-sm bg-[var(--light-pink)] py-4 w-full border-8 border-[var(--primary)]">
     <div class="container mx-auto flex flex-col md:flex-row justify-center items-center gap-y-2 gap-x-4">
@@ -860,7 +858,7 @@ amazonUrl: "https://amzn.to/41aSAQ9"
 </script>
 
 <script>
-  const referralEnabled = false;
+  const referralEnabled = true;
   let referralBannerText = '';
   let storedReferral = localStorage.getItem('ref');
   let params = new URLSearchParams(document.location.search);
